@@ -1,24 +1,29 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Header from "../components/header/Header";
-import ClientLayout from "../layout/ClientLayout";
-import AdminLayout from "../layout/Adminlayout";
-import Sidebar from "../components/sidebar/Sidebar";
-import SuplierManagemenet from "../pages/SuplierManagement";
+import Dashboard from '../pages/admin/dashboard/dashboard'
+import Client from '../pages/admin/client/client';
+import Career from '../pages/admin/CareerAdmin/addVacancy';
+import ClientLayout from "../layout/clientLayout";
+import AdminLayout from "../layout/adminLayout";
+import Header from "../components/admin/common/header/Header";
+import Sidebar from "../components/admin/common/sidebar/Sidebar";
+import ClientHeader from "../components/client/common/header/ClientHeader";
+import HomePage from "../pages/client/home/homePage";
+import CareerList from "../pages/admin/CareerAdmin/CareerList";
+
 
 const AppRoutes = () => {
     return (
         <div>
             <Router>
                 <Switch>
-                    
-                    <Route path='/home/:path?' exact>
+                    <Route path='/client/:path?' exact>
                         <div style={{"height": "auto"}}>
-                           
+                            <ClientHeader/>
                             <ClientLayout>
                                 <main>
                                     <Switch>
-                                        
+                                        <Route path="/client" render={(props) => <HomePage/>} exact/>;
                                     </Switch>
                                 </main>
                             </ClientLayout>
@@ -29,16 +34,11 @@ const AppRoutes = () => {
                         <AdminLayout class="wrapper">
                             <Header/>
                             <Sidebar/>
-
-                            
-                            
                             <Switch>
-
-
-                            <Route path="/supplier" render={(props) => <SuplierManagemenet/>} exact/>;
-                               
-                                
-
+                                <Route path="/admin" render={(props) => <Dashboard/>} exact/>;
+                                <Route path="/admin/client" render={(props) => <Client/>}/>;
+                                <Route path="/admin/career" render={(props) => <Career/>}/>;
+                                <Route path="/admin/careerlist" render={(props) => <CareerList/>}/>;
                             </Switch>
                         </AdminLayout>
                     </Route>
