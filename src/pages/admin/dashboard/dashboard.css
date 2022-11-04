@@ -25,3 +25,14 @@
     width: calc(100% - 70px);
     margin-left: 70px;
 }
+
+.item {
+    height: 91vh !important;
+}
+
+.card{
+    justify-content: center;
+    height: 100px;
+    background: linear-gradient(0deg, #2B4B43, #2B4B43);
+    color: #FFFFFF;
+}
