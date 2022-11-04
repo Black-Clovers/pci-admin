@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const Sidebar = () => {
     return (<div className="sidebar">
-        <ul>
+        <ul className='ps-0'>
         <li><Link to="/admin/">
                 <span className="icon"><i className="fa fa-tachometer"/></span>
                 <span className="title">Dashbord</span>
