@@ -21,10 +21,6 @@ const Sidebar = () => {
                 <span className="icon"><i className="fa fa-car" aria-hidden="true"/></span>
                 <span className="title">Requisition Management</span>
             </Link></li>
-            <li><Link to="/admin/career">
-                <span className="icon"><i className="fa fa-user-tie" aria-hidden="true"/></span>
-                <span className="title">Career</span>
-            </Link></li>
         </ul>
     </div>);
 }

@@ -10,6 +10,41 @@ function SupplierManagement() {
   const [supplierEmail, setemail] = useState("");
   const [listOfpackage, setlistOfpackage] = useState([]);
   const [PackageSearch, setpkgSearch] = useState("");
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate());
+    sub();
+    setIsSubmit(true);
+  };
+
+  const validate = () => {
+    const errors = {};
+
+    if (!supplierName) {
+      errors.supplierName = "Supplier Name is required!";
+    }
+    if (!supplierAddress) {
+      errors.supplierAddress = "Supplier Address is required!";
+    }
+    if (!supplierMobile) {
+      errors.supplierMobile = "Phone is required!";
+    } else if (supplierMobile.length !== 10) {
+      errors.supplierMobile = "Phone number is invalid!";
+    }
+    if (!supplierEmail) {
+      errors.supplierEmail = "Supplier Email is required!";
+    }
+
+    return errors;
+  };
+  const sub = () => {
+    if (Object.keys(formErrors).length == 0 && isSubmit) {
+      createSupplier();
+    }
+  };
 
   const createSupplier = () => {
     Axios.post("http://localhost/pci-backend/v1/pci/admin/supplier/create/", {
@@ -72,11 +107,12 @@ function SupplierManagement() {
                   id="form6Example3"
                   class="form-control"
                   value={supplierName}
-                  placeholder="Company name"
+                  placeholder="Supplier name"
                   onChange={(event) => {
                     setcompany_name(event.target.value);
                   }}
                 />
+                  <p class="alert-txt">{formErrors.supplierName}</p>
               </div>
 
               <div class="form-outline mb-4">
@@ -85,11 +121,12 @@ function SupplierManagement() {
                   id="form6Example4"
                   class="form-control"
                   value={supplierEmail}
-                  placeholder="Email"
+                  placeholder="Supplier Email"
                   onChange={(event) => {
                     setemail(event.target.value);
                   }}
                 />
+                  <p class="alert-txt">{formErrors.supplierEmail}</p>
               </div>
 
               <div class="form-outline mb-4">
@@ -98,11 +135,12 @@ function SupplierManagement() {
                   id="form6Example5"
                   class="form-control"
                   value={supplierAddress}
-                  placeholder="Company Address"
+                  placeholder="Supplier Address"
                   onChange={(event) => {
                     setCompany_address(event.target.value);
                   }}
                 />
+                  <p class="alert-txt">{formErrors.supplierAddress}</p>
               </div>
 
               <div class="form-outline mb-4">
@@ -111,11 +149,12 @@ function SupplierManagement() {
                   id="form6Example6"
                   value={supplierMobile}
                   class="form-control"
-                  placeholder="Phone"
+                  placeholder="Supplier Phone"
                   onChange={(event) => {
                     setcontacts(event.target.value);
                   }}
                 />
+                 <p class="alert-txt">{formErrors.supplierMobile}</p>
               </div>
 
               <div className="row mt-5">
@@ -124,7 +163,7 @@ function SupplierManagement() {
                     type="submit"
                     id="reg"
                     className="btn btnRegister "
-                    onClick={createSupplier}
+                    onClick={handleSubmit}
                   >
                     Add
                   </button>
