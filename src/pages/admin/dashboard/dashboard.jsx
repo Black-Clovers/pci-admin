@@ -5,7 +5,7 @@ const Dashboard = () => {
     return (
         <div>
             <div className="main_container">
-                <div className="item ">
+                <div className="item" id='item'>
                     <div className="row mt-4">
                         <div className="col d-flex justify-content-center align-items-center">
                             <div className="col-6 card text-center">
