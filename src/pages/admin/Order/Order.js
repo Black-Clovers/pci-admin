@@ -3,10 +3,9 @@ import "./order.css";
 import { useState} from "react";
 import Axios from "axios";
 
-
-
 function Order() {
   
+
 
   const [orderId, setorderId] = useState("");
   const [companyName, setcompany_name] = useState("");
@@ -17,6 +16,7 @@ function Order() {
   const [quantity, setquantity] = useState("");
   const [descriptionAgreedPrice, setdescriptionAgreedPrice] = useState("");
   const [listOfpackage, setlistOfpackage] = useState([]);
+
 
   const createorder = () => {
     Axios.post("http://localhost/pci-backend/v1/pci/admin/order/create/", {
@@ -70,8 +70,7 @@ function Order() {
                     type="text"
                     onChange={(event) => {
                       setcompany_name(event.target.value);
-                    }}
-                   
+                    }}   
                     className="form-control"
                     placeholder="Company Name"
                     
@@ -87,6 +86,7 @@ function Order() {
                     onChange={(event) => {
                       setsuppliername(event.target.value);
                     }}
+
                     className="form-control"
                     placeholder="Supplier Name"
                     
@@ -102,7 +102,7 @@ function Order() {
                     onChange={(event) => {
                       setrefence(event.target.value);
                     }}
-                   
+
                     className="form-control"
                     placeholder="Reffernece Number"
                    
@@ -118,8 +118,7 @@ function Order() {
                     onChange={(event) => {
                       setquantity(event.target.value);
                     }}
-                   
-                    className="form-control"
+                  className="form-control"
                     placeholder="Quantity"
                     
                   />
@@ -131,6 +130,7 @@ function Order() {
                     onChange={(event) => {
                       setdescriptionAgreedPrice(event.target.value);
                     }}
+
                     className="form-control"
                     placeholder="Price"
                     
@@ -140,11 +140,17 @@ function Order() {
                 <div className="col">
                 <input name="dateOfBirth"
                                            className="form-control"
+
                                            placeholder="Required date"
                                            type="text"
                                           
                                            onFocus={(e) => e.target.type = 'date'} id="dateOfBirth" onChange={(e) => {
                                             setdates(e.target.value)
+
+                                           
+                                       
+                                          onFocus={(e) => e.target.type = 'date'} id="dateOfBirth" onChange={(e) => {
+                                        setClient_DOB(e.target.value
                                     }}/>
                             
                 </div>
@@ -161,8 +167,7 @@ function Order() {
                       placeholder="Delivery Address"
                       onChange={(event) => {
                         setdeliveryAddress(event.target.value);
-                      }}
-                     
+                      }} 
                     ></textarea>
                   </div>
                 </div>
@@ -177,6 +182,7 @@ function Order() {
                     id="reg"
                     className="btn btnRegister "
                     onClick={createorder}
+
                   >
                     Add Package
                   </button>
