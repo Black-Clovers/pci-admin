@@ -1,18 +1,23 @@
- <img src="https://user-images.githubusercontent.com/88552872/188137973-be52df68-7dd0-45be-b78b-38f8fa4f31bb.png" width="100%"/>
+ ![Screenshot 2022-11-04 163757](https://user-images.githubusercontent.com/88552872/199958651-03ccc35c-ad41-4683-b3c9-237f8dba1b26.png)
 
-<h3 align="left"> GoGo - Taxi service platform</h3>
+<h2>Procurement for Construction Industry</h2>
+<h4>SE3070 – Case Studies in Software Engineering</h4>
 
-<h2 align="left">Description about the project</h2>
+<p>This case study deals with the difficulties faced with the procurement procedures within the
+construction industry due to its inherently distributed environment. It is specifically targeted at small
+and medium sized site works.<br>
+In this case study, your teams are bidding to SLIIT Software Development unit, for the contract to develop
+software to provide mobile procurement systems in the construction industry.</p>
 
-As 3rd year 1st semaster Software project Management module we have to develop a web application.So that we come up with a software solution for our project.
+<p>This is pci-Admin for adminstration office work</p>
 
-‘GOGO’ is a taxi service platform which facilitates real time connection between taxi passenger and taxi driver. It’s provided seamless services to the users. It’s mainly focus on several services like taxi booking, career services, employee services and rental services. Under booking service customers can book their taxi by filling required form easily. Drivers can register them as employees in the system and vehicle owners can rent their vehicles to the system. In career services, job applicants can apply for the available job vacancies display on the system.
+<h2 align="left">Group : SE3070_WE_15</h2>
+<h3>Group Member</h3>
+<p>IT20604844 	Thilakarathna W.G.T.D</p>
+<p>IT20605834 	Kotuwe Gedara H.R </p>
+<p>IT20607678 	Senevirathne W.S.M.S.D </p>
+<p>IT20614126 	Silva A.D.M.P. </p>
  
- <h2 align="left">Group Members</h2>
- - Tharindu Dimantha Thilakarathna (Leader)
- - Madhusha Prasad Silva
- - Samitha Dilshan Senevirathne
- - Heshan Rathsara Kotuwe Gedara
  
  ## 🌱 Contributors </br>
 
