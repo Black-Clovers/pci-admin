@@ -3,7 +3,7 @@
     top: 70px;
     left: 10px;
     background: linear-gradient(0deg, #2B4B43, #2B4B43);
-    width: 200px;
+    width: 220px;
     height: calc(100% - 80px);
     border-bottom-left-radius: 20px;
     transition: all 0.3s ease;
@@ -12,7 +12,7 @@
 
 .wrapper .sidebar ul li a {
     display: block;
-    padding: 20px;
+    padding: 30px;
     position: relative;
     margin-bottom: 1px;
     color: #FFFFFF;

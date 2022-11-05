@@ -10,6 +10,7 @@ import ClientHeader from "../components/client/common/header/ClientHeader";
 import HomePage from "../pages/client/home/homePage";
 import Supplier from "../pages/admin/Supplier/SupplierManagement";
 import Requsiion from "../pages/requsition/Requsition";
+import Order from "../pages/admin/Order/Order";
 
 
 
@@ -39,7 +40,7 @@ const AppRoutes = () => {
                             <Switch>
                                 <Route path="/admin" render={(props) => <Dashboard/>} exact/>;
                                 <Route path="/admin/supplier" render={(props) => <Supplier/>}/>;
-                                <Route path="/admin/supplier" render={(props) => <Supplier/>}/>;
+                                <Route path="/admin/order" render={(props) => <Order/>}/>;
                             </Switch>
                         </AdminLayout>
                     </Route>

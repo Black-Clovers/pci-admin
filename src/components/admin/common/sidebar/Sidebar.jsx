@@ -9,25 +9,17 @@ const Sidebar = () => {
                 <span className="icon"><i className="fa fa-tachometer"/></span>
                 <span className="title">Dashboard</span>
             </Link></li>
-            <li><Link to="/admin/driver">
-                <span className="icon"><i className="fa-solid fa-user-group"/></span>
-                <span className="title">Driver</span>
+            <li><Link to="/admin/order">
+                <span className="icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span>
+                <span className="title">Add Order</span>
             </Link></li>
-            <li><Link to="/admin/client">
+            <li><Link to="/admin/supplier">
                 <span className="icon"><i className="fa fa-female" aria-hidden="true"/></span>
-                <span className="title">Client</span>
+                <span className="title">Supplier Management</span>
             </Link></li>
-            <li><Link to="/admin/vehicle">
+            <li><Link to="/admin/requsition">
                 <span className="icon"><i className="fa fa-car" aria-hidden="true"/></span>
-                <span className="title">Vehicle</span>
-            </Link></li>
-            <li><Link to="/admin/package">
-                <span className="icon"><i className="fa fa-archive" aria-hidden="true"/></span>
-                <span className="title">Package</span>
-            </Link></li>
-            <li><Link to="/admin/ride">
-                <span className="icon"><i className="fa fa-location-arrow" aria-hidden="true"/></span>
-                <span className="title">Ride</span>
+                <span className="title">Requsition Management</span>
             </Link></li>
             <li><Link to="/admin/career">
                 <span className="icon"><i className="fa fa-user-tie" aria-hidden="true"/></span>
