@@ -17,9 +17,9 @@ const Sidebar = () => {
                 <span className="icon"><i className="fa fa-female" aria-hidden="true"/></span>
                 <span className="title">Supplier Management</span>
             </Link></li>
-            <li><Link to="/admin/requsition">
+            <li><Link to="/admin/requisition">
                 <span className="icon"><i className="fa fa-car" aria-hidden="true"/></span>
-                <span className="title">Requsition Management</span>
+                <span className="title">Requisition Management</span>
             </Link></li>
             <li><Link to="/admin/career">
                 <span className="icon"><i className="fa fa-user-tie" aria-hidden="true"/></span>
