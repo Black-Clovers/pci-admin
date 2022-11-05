@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "./requsition.css";
 import Axios from "axios";
+import axios from "axios";
+import VueSweetalert2 from "sweetalert2";
 
 function Requisition() {
     const [orders, setOrders] = useState([]);
@@ -11,6 +13,32 @@ function Requisition() {
             setOrders(response.data);
         });
     }, []);
+
+    const updateAcceptAction = (order) => {
+        const updateOrder = {
+            "orderId": parseInt(order.orderId),
+            "companyName": order.companyName,
+            "supplierName": order.supplierName,
+            "deliveryAddress": order.deliveryAddress,
+            "referenceNumber": order.referenceNumber,
+            "dates": order.dates,
+            "quantity": order.quantity,
+            "descriptionAgreedPrice": order.descriptionAgreedPrice,
+            "status": "accept"
+        }
+        axios.put("http://localhost:8080/pci-backend/v1/pci/admin/order/update/", updateOrder).then((response) => {
+            if (response.data.status === "success") {
+                VueSweetalert2.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    icon: 'success',
+                    title: 'Your Order details Updated to the System',
+                });
+            }
+        })
+    }
 
     const displayAllReq = () => {
         return orders.map((order) => {
@@ -25,10 +53,27 @@ function Requisition() {
                 <td> {order.quantity}</td>
                 <td> {order.deliveryAddress}</td>
                 <td>
-                    <i style={{"cursor": "pointer"}} className="fa-solid fa-square-check me-3 text-success d-inline"
+                    <i style={{"cursor": "pointer"}}
+                       className={order.status === "accept" ? "fa-solid fa-square-check me-3 text-success d-inline d-block"
+                           : "fa-solid fa-square-check me-3 text-success d-inline d-none"}
+                       onClick={() => {
+                           updateAcceptAction(order)
+                       }}
                     />
                     <i style={{"cursor": "pointer"}}
-                       className="fa-solid fa-circle-xmark d-inline me-2 text-danger d-inline"/>
+                       className={order.status === "pending" || order.status === "" ? "fa-solid fa-square-check me-3 text-success d-inline d-block"
+                           : "fa-solid fa-square-check me-3 text-success d-inline d-none"}
+                       onClick={() => {
+                           updateAcceptAction(order)
+                       }}
+                    />
+                    <i style={{"cursor": "pointer"}}
+                       className={order.status === "pending" || order.status === "" ?
+                           "fa-solid fa-circle-xmark d-inline me-2 text-danger d-inline block" : "fa-solid fa-circle-xmark d-inline me-2 text-danger d-inline d-none"}/>
+
+                    <i style={{"cursor": "pointer"}}
+                       className={order.status === "reject" ?
+                           "fa-solid fa-circle-xmark d-inline me-2 text-danger d-inline d-block" : "fa-solid fa-circle-xmark d-inline me-2 text-danger d-inline d-none"}/>
                 </td>
             </tr>)
         });
