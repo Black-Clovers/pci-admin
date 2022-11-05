@@ -1,13 +1,52 @@
 import React from "react";
 import "./order.css";
-import { useState, useEffect } from "react";
+import { useState} from "react";
+import Axios from "axios";
 
 
 
 function Order() {
   
-  const [client_DOB, setClient_DOB] = useState("");
 
+  const [orderId, setorderId] = useState("");
+  const [companyName, setcompany_name] = useState("");
+  const [supplierName, setsuppliername] = useState("");
+  const [deliveryAddress, setdeliveryAddress] = useState("");
+  const [referenceNumber, setrefence] = useState("");
+  const [dates, setdates] = useState("");
+  const [quantity, setquantity] = useState("");
+  const [descriptionAgreedPrice, setdescriptionAgreedPrice] = useState("");
+  const [listOfpackage, setlistOfpackage] = useState([]);
+
+  const createorder = () => {
+    Axios.post("http://localhost/pci-backend/v1/pci/admin/order/create/", {
+      orderId,
+      companyName,
+      supplierName,
+      deliveryAddress,
+      referenceNumber,
+      dates,
+      quantity,
+      descriptionAgreedPrice,
+
+
+    }).then((response) => {
+      setlistOfpackage([
+        ...listOfpackage,
+        {
+
+          orderId,
+          companyName,
+          supplierName,
+          deliveryAddress,
+          referenceNumber,
+          dates,
+          quantity,
+          descriptionAgreedPrice,
+        },
+      ]);
+    });
+  };
 
   return (
     <div>
@@ -29,9 +68,12 @@ function Order() {
                 <div className="col">
                   <input
                     type="text"
+                    onChange={(event) => {
+                      setcompany_name(event.target.value);
+                    }}
                    
                     className="form-control"
-                    placeholder="Package Name"
+                    placeholder="Company Name"
                     
                   />
                 
@@ -42,7 +84,9 @@ function Order() {
                 <div className="col">
                   <input
                     type="text"
-                   
+                    onChange={(event) => {
+                      setsuppliername(event.target.value);
+                    }}
                     className="form-control"
                     placeholder="Supplier Name"
                     
@@ -55,6 +99,9 @@ function Order() {
                 <div className="col">
                   <input
                     type="text"
+                    onChange={(event) => {
+                      setrefence(event.target.value);
+                    }}
                    
                     className="form-control"
                     placeholder="Reffernece Number"
@@ -68,9 +115,12 @@ function Order() {
                 <div className="col">
                   <input
                     type="text"
+                    onChange={(event) => {
+                      setquantity(event.target.value);
+                    }}
                    
                     className="form-control"
-                    placeholder="Maximum Passengers"
+                    placeholder="Quantity"
                     
                   />
                  
@@ -78,7 +128,9 @@ function Order() {
                 <div className="col">
                   <input
                     type="text"
-                    
+                    onChange={(event) => {
+                      setdescriptionAgreedPrice(event.target.value);
+                    }}
                     className="form-control"
                     placeholder="Price"
                     
@@ -88,11 +140,11 @@ function Order() {
                 <div className="col">
                 <input name="dateOfBirth"
                                            className="form-control"
-                                           placeholder="Date of Birth"
+                                           placeholder="Required date"
                                            type="text"
                                           
                                            onFocus={(e) => e.target.type = 'date'} id="dateOfBirth" onChange={(e) => {
-                                        setClient_DOB(e.target.value)
+                                            setdates(e.target.value)
                                     }}/>
                             
                 </div>
@@ -107,6 +159,9 @@ function Order() {
                       id="exampleFormControlTextarea1"
                       rows="4"
                       placeholder="Delivery Address"
+                      onChange={(event) => {
+                        setdeliveryAddress(event.target.value);
+                      }}
                      
                     ></textarea>
                   </div>
@@ -121,7 +176,7 @@ function Order() {
                     type="submit"
                     id="reg"
                     className="btn btnRegister "
-                   
+                    onClick={createorder}
                   >
                     Add Package
                   </button>
